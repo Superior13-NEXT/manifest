@@ -29,6 +29,7 @@
   <remove-project name="device/google/contexthub" />
 
   <!-- external repos -->
+  <remove-project name="platform/external/bouncycastle" />
   <remove-project name="platform/external/exfatprogs" />
   <remove-project name="platform/external/e2fsprogs" />
   <remove-project name="platform/external/gptfdisk" />
