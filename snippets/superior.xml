@@ -21,12 +21,16 @@
 
   <remote  name="Extended"
            fetch="https://github.com/SuperiorExtended/" />
+
+  <remote name="next"
+          fetch="https://github.com/Superior13-NEXT/"
+          revision="refs/heads/QPR3" />
   
   <remote  name="Extended-gitlab"
            fetch="https://gitlab.com/superior-extended/" />
 
   <!-- Build repos -->
-  <project path="build/make" name="android_build" remote="Extended" revision="QPR3" >
+  <project path="build/make" name="android_build" remote="next" revision="QPR3" >
     <copyfile src="core/root.mk" dest="Makefile" />
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
     <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
@@ -35,13 +39,13 @@
     <linkfile src="target" dest="build/target" />
     <linkfile src="tools" dest="build/tools" />
   </project>
-  <project path="build/soong" name="android_build_soong" groups="pdk,tradefed" remote="Extended" revision="QPR3" >
+  <project path="build/soong" name="android_build_soong" groups="pdk,tradefed" remote="next" revision="QPR3" >
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
 
   <project path="art" name="android_art" remote="Extended" revision="QPR3" />
-  <project path="bionic" name="android_bionic" groups="pdk" remote="superior" />
+  <project path="bionic" name="android_bionic" groups="pdk" remote="next" revision="QPR3" />
   <project path="manifest" name="manifest" remote="superior" />
 
   <!-- Bootable repos -->
@@ -57,24 +61,24 @@
   <project path="device/qcom/sepolicy" name="android_device_qcom_sepolicy" remote="superior" />
   <project path="device/qcom/sepolicy-legacy-um" name="android_device_qcom_sepolicy-legacy-um" remote="superior" />
   <project path="device/qcom/sepolicy_vndr" name="android_device_qcom_sepolicy_vndr" remote="superior" />
-  <project path="device/qcom/sepolicy_vndr-legacy-um" name="android_device_qcom_sepolicy_vndr-legacy-um" remote="superior" />
-  <project path="device/superior/sepolicy" name="android_device_superior_sepolicy" remote="Extended" revision="QPR3" /> 
+  <project path="device/qcom/sepolicy_vndr-legacy-um" name="android_device_qcom_sepolicy_vndr-legacy-um" remote="next" revision="QPR3" />
+  <project path="device/superior/sepolicy" name="android_device_superior_sepolicy" remote="next" revision="QPR3" /> 
 
   <!-- External repos -->
   <project path="external/dwarves" name="platform/external/dwarves" remote="aosp" revision="3c8f7e8b2cf7ff902b71c42d00fda30f30114b07" />
   <project path="external/e2fsprogs" name="android_external_e2fsprogs" remote="superior" />
   <project path="external/faceunlock" name="android_external_faceunlock" remote="superior-gitlab" />
   <project path="external/gptfdisk" name="android_external_gptfdisk" remote="superior" />
-  <project path="external/jemalloc_new" name="android_external_jemalloc_new" remote="superior" />
+  <project path="external/jemalloc_new" name="android_external_jemalloc_new" remote="next" revision="QPR3" />
   <project path="external/mksh" name="android_external_mksh" remote="superior" />
   <project path="external/selinux" name="android_external_selinux" remote="superior" />
   <project path="external/tinycompress" name="android_external_tinycompress" remote="superior" />
   <project path="external/tinyxml" name="android_external_tinyxml" remote="superior" />
 
   <!-- Framework repos -->
-  <project path="frameworks/av" name="android_frameworks_av" remote="Extended" revision="QPR3" />
-  <project path="frameworks/base" name="android_frameworks_base" remote="Extended" revision="QPR3" />
-  <project path="frameworks/native" name="android_frameworks_native" remote="Extended" revision="QPR3" />
+  <project path="frameworks/av" name="android_frameworks_av" remote="next" revision="QPR3" />
+  <project path="frameworks/base" name="android_frameworks_base" remote="next" revision="QPR3" />
+  <project path="frameworks/native" name="android_frameworks_native" remote="next" revision="QPR3" />
   <project path="frameworks/libs/net" name="android_frameworks_libs_net" remote="Extended" revision="QPR3" />
   <project path="frameworks/libs/systemui" name="android_frameworks_libs_systemui" remote="superior" />
   <project path="frameworks/opt/telephony" name="android_frameworks_opt_telephony" remote="Extended" revision="QPR3" />
@@ -119,13 +123,12 @@
 
   <!-- Vendor repos -->
   <project path="vendor/gapps" name="android_vendor_gapps" remote="Extended-gitlab" revision="QPR3" clone-depth="1" />
-  <project path="vendor/superior" name="android_vendor_superior" remote="Extended" revision="QPR3" />
-  <project path="vendor/support" name="android_vendor_support" remote="Extended" revision="QPR3" />
+  <project path="vendor/superior" name="android_vendor_superior" remote="next" revision="QPR3" />
+  <project path="vendor/support" name="android_vendor_support" remote="next" revision="QPR3" />
   <project path="vendor/prebuilts" name="android_vendor_prebuilts" remote="Extended" revision="QPR3" />
   <project path="vendor/prebuilts-superior" name="android_vendor_prebuilts-superior" remote="superior-gitlab" />
 
   <!-- Packages repos -->
-  <project path="packages/apps/Aperture" name="android_packages_apps_Aperture" remote="superior" />  
   <project path="packages/apps/Contacts" name="android_packages_apps_Contacts" remote="Extended" revision="QPR3" />
   <project path="packages/apps/DeskClock" name="android_packages_apps_DeskClock" remote="superior" />
   <project path="packages/apps/Dialer" name="android_packages_apps_Dialer" remote="superior" />
@@ -135,31 +138,30 @@
   <project path="packages/apps/DocumentsUI" name="android_packages_apps_DocumentsUI" remote="Extended" revision="QPR3" />
   <project path="packages/apps/GameSpace" name="packages_apps_GameSpace" remote="Extended" revision="QPR3" />
   <project path="packages/apps/Launcher3" name="android_packages_apps_Launcher3" remote="Extended" revision="QPR3" />
-  <project path="packages/apps/Matlog" name="android_packages_apps_Matlog" remote="superior" />
   <project path="packages/apps/Messaging" name="android_packages_apps_Messaging" remote="Extended" revision="QPR3" />
   <project path="packages/apps/Nfc" name="android_packages_apps_Nfc" remote="Extended" revision="QPR3" />
   <project path="packages/apps/ParallelSpace" name="android_packages_apps_ParallelSpace" remote="Extended" revision="QPR3" />
   <project path="packages/apps/RepainterService" name="android_packages_apps_RepainterService" remote="Extended" revision="QPR3" />
-  <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="Extended" revision="QPR3" />
+  <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="next" revision="QPR3" />
   <project path="packages/apps/SettingsIntelligence" name="android_packages_apps_SettingsIntelligence" remote="superior" />
-  <project path="packages/apps/SuperiorLab" name="android_packages_apps_SuperiorLab" remote="Extended" revision="QPR3" />
+  <project path="packages/apps/SuperiorLab" name="android_packages_apps_SuperiorLab" remote="next" revision="QPR3" />
   <project path="packages/apps/ThemePicker" name="android_packages_apps_ThemePicker" remote="Extended" revision="QPR3" />
   <project path="packages/apps/Updater" name="android_packages_apps_Updater" remote="superior" />
   <project path="packages/apps/WallpaperPicker2" name="android_packages_apps_WallpaperPicker2" remote="Extended" revision="QPR3" />
   <project path="packages/apps/SupExtendedWallpaperStub" name="android_packages_apps_SupExtendedWallpaperStub" remote="Extended" revision="QPR3" />
   <project path="packages/inputmethods/LatinIME" name="android_packages_inputmethods_LatinIME" remote="superior" />
   <project path="packages/modules/adb" name="android_packages_modules_adb" remote="superior" />
-  <project path="packages/modules/Bluetooth" name="android_packages_modules_Bluetooth" remote="Extended" revision="QPR3" />
-  <project path="packages/modules/Connectivity" name="android_packages_modules_Connectivity" remote="superior" />
-  <project path="packages/modules/Permission" name="android_packages_modules_Permission" remote="Extended" revision="QPR3" />
-  <project path="packages/modules/Wifi" name="android_packages_modules_Wifi" remote="Extended" revision="QPR3" />
-  <project path="packages/overlays/Themes" name="android_packages_overlays_Themes" remote="Extended" revision="QPR3" />
+  <project path="packages/modules/Bluetooth" name="android_packages_modules_Bluetooth" remote="next" revision="QPR3" />
+  <project path="packages/modules/Connectivity" name="android_packages_modules_Connectivity" remote="next" revision="QPR3" />
+  <project path="packages/modules/Permission" name="android_packages_modules_Permission" remote="next" revision="QPR3" />
+  <project path="packages/modules/Wifi" name="android_packages_modules_Wifi" remote="next" revision="QPR3" />
+  <project path="packages/overlays/Themes" name="android_packages_overlays_Themes" remote="next" revision="QPR3" />
   <project path="packages/apps/TouchGestures" name="android_packages_apps_TouchGestures" remote="Extended" revision="QPR3" />
-  <project path="packages/providers/DownloadProvider" name="android_packages_providers_DownloadProvider" remote="Extended" revision="QPR3" />
-  <project path="packages/providers/MediaProvider" name="android_packages_providers_MediaProvider" remote="Extended" revision="QPR3" /> 
+  <project path="packages/providers/DownloadProvider" name="android_packages_providers_DownloadProvider" remote="next" revision="QPR3" />
+  <project path="packages/providers/MediaProvider" name="android_packages_providers_MediaProvider" remote="next" revision="QPR3" /> 
     <project path="packages/services/OmniJaws" name="android_packages_services_OmniJaws" remote="Extended" revision="QPR3" />
-  <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="Extended" revision="QPR3" />
-  <project path="packages/services/Telephony" name="android_packages_services_Telephony" remote="Extended" revision="QPR3" />
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="next" revision="QPR3" />
+  <project path="packages/services/Telephony" name="android_packages_services_Telephony" remote="next" revision="thirteen" />
 
   <!-- Prebuilt repos -->
   <project path="prebuilts/clang/kernel/linux-x86/clang-r416183b" name="android_prebuilts_clang_kernel_linux-x86_clang-r416183b" remote="superior" clone-depth="1" />
@@ -171,15 +173,15 @@
   <project path="prebuilts/clang/host/linux-x86/clang-proton" name="kdrag0n/proton-clang" clone-depth="1" revision="master" remote="github" />
 
   <!-- System repos -->
-  <project path="system/core" name="android_system_core" remote="superior" />
+  <project path="system/core" name="android_system_core" remote="next" revision="QPR3" />
   <project path="system/extras" name="android_system_extras" remote="superior" />
   <project path="system/libhidl" name="android_system_libhidl" remote="superior" />
   <project path="system/libziparchive" name="android_system_libziparchive" remote="superior" />
   <project path="system/logging" name="android_system_logging" remote="superior" />
   <project path="system/media" name="android_system_media" remote="Extended" revision="QPR3" />
   <project path="system/security" name="android_system_security" remote="superior" />
-  <project path="system/sepolicy" name="android_system_sepolicy" remote="superior" />
+  <project path="system/sepolicy" name="android_system_sepolicy" remote="next" revision="QPR3" />
   <project path="system/update_engine" name="android_system_update_engine" remote="Extended" revision="QPR3" />
   <project path="system/vold" name="android_system_vold" remote="superior" />
-  <project path="system/memory/lmkd" name="android_system_memory_lmkd" remote="superior" />
+  <project path="system/memory/lmkd" name="android_system_memory_lmkd" remote="next" revision="QPR3" />
 </manifest>
