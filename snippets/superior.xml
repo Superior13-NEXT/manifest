@@ -7,10 +7,6 @@
   <remote  name="gitlab"
            fetch="https://gitlab.com/" />
 
-  <remote name="superior"
-          fetch="https://github.com/SuperiorOS/"
-          revision="refs/heads/thirteen" />
-
   <remote name="superior-gitlab"
           fetch="https://gitlab.com/superioros"
           revision="refs/heads/thirteen" />
@@ -19,8 +15,25 @@
            fetch="https://github.com/SuperiorOS-Devices"
            revision="refs/heads/thirteen" />
 
-  <remote  name="Extended"
-           fetch="https://github.com/SuperiorExtended/" />
+  <remote name="qcom"
+           fetch="https://github.com/vendor-qcom-olive"
+           revision="refs/heads/QPR3" />
+
+  <remote name="ext"
+           fetch="https://github.com/external-olive"
+           revision="refs/heads/QPR3" />
+
+  <remote name="sys"
+           fetch="https://github.com/system-olive"
+           revision="refs/heads/QPR3" />
+
+  <remote name="mdl"
+           fetch="https://github.com/packages-modules-olive"
+           revision="refs/heads/QPR3" />
+
+  <remote name="apps"
+           fetch="https://github.com/packages-apps-olive"
+           revision="refs/heads/QPR3" />
 
   <remote name="next"
           fetch="https://github.com/Superior13-NEXT/"
@@ -44,146 +57,138 @@
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
 
-  <project path="art" name="android_art" remote="next" revision="QPR3" />
-  <project path="bionic" name="android_bionic" groups="pdk" remote="next" revision="QPR3" />
-  <project path="manifest" name="manifest" remote="superior" />
-
-  <!-- Bootable repos -->
-  <project path="bootable/recovery" name="android_bootable_recovery" remote="Extended" revision="QPR3" />
-
   <!-- CodeAurora additions -->
-  <project path="vendor/qcom/opensource/commonsys-intf/display" name="android_vendor_qcom_opensource_display-commonsys-intf" groups="qcom,qssi" remote="superior" />
-  <project path="vendor/qcom/opensource/commonsys/display" name="android_vendor_qcom_opensource_commonsys_display" groups="qcom,qssi" remote="superior" />
-  <project path="vendor/qcom/opensource/display" name="android_vendor_qcom_opensource_display" remote="superior" />
-  <project path="vendor/qcom/opensource/interfaces" name="android_vendor_qcom_opensource_interfaces" groups="qcom,qssi" remote="superior" />
+  <project path="vendor/qcom/opensource/commonsys-intf/display" name="android_vendor_qcom_opensource_display-commonsys-intf" groups="qcom,qssi" remote="qcom" revision="QPR3" />
+  <project path="vendor/qcom/opensource/commonsys/display" name="android_vendor_qcom_opensource_commonsys_display" groups="qcom,qssi" remote="qcom" revision="QPR3" />
+  <project path="vendor/qcom/opensource/display" name="android_vendor_qcom_opensource_display" remote="qcom" revision="QPR3" />
+  <project path="vendor/qcom/opensource/interfaces" name="android_vendor_qcom_opensource_interfaces" groups="qcom,qssi" remote="qcom" revision="QPR3" />
 
   <!-- Device repos -->
-  <project path="device/qcom/sepolicy" name="android_device_qcom_sepolicy" remote="superior" />
-  <project path="device/qcom/sepolicy-legacy-um" name="android_device_qcom_sepolicy-legacy-um" remote="superior" />
-  <project path="device/qcom/sepolicy_vndr" name="android_device_qcom_sepolicy_vndr" remote="superior" />
-  <project path="device/qcom/sepolicy_vndr-legacy-um" name="android_device_qcom_sepolicy_vndr-legacy-um" remote="next" revision="QPR3" />
-  <project path="device/superior/sepolicy" name="android_device_superior_sepolicy" remote="next" revision="QPR3" /> 
+  <project path="device/qcom/sepolicy" name="android_device_qcom_sepolicy" remote="qcom" revision="QPR3" /> 
+  <project path="device/qcom/sepolicy-legacy-um" name="android_device_qcom_sepolicy-legacy-um" remote="qcom" revision="QPR3" /> 
+  <project path="device/qcom/sepolicy_vndr" name="android_device_qcom_sepolicy_vndr" remote="qcom" revision="QPR3" /> 
+  <project path="device/qcom/sepolicy_vndr-legacy-um" name="android_device_qcom_sepolicy_vndr-legacy-um" remote="qcom" revision="QPR3" />
+
+  <!-- External aosp -->
+  <project path="external/dwarves" name="platform/external/dwarves" remote="aosp" revision="3c8f7e8b2cf7ff902b71c42d00fda30f30114b07" />
 
   <!-- External repos -->
-  <project path="external/bouncycastle" name="android_external_bouncycastle" groups="pdk" remote="next" revision="QPR3" />
-  <project path="external/dwarves" name="platform/external/dwarves" remote="aosp" revision="3c8f7e8b2cf7ff902b71c42d00fda30f30114b07" />
-  <project path="external/e2fsprogs" name="android_external_e2fsprogs" remote="superior" />
+  <project path="external/bouncycastle" name="android_external_bouncycastle" groups="pdk" remote="ext" revision="QPR3" />
+  <project path="external/e2fsprogs" name="android_external_e2fsprogs" remote="ext" revision="QPR3" />
+  <project path="external/gptfdisk" name="android_external_gptfdisk" remote="ext" revision="QPR3" />
+  <project path="external/jemalloc_new" name="android_external_jemalloc_new" remote="ext" revision="QPR3" />
+  <project path="external/mksh" name="android_external_mksh" remote="ext" revision="QPR3" />
+  <project path="external/selinux" name="android_external_selinux" remote="ext" revision="QPR3" />
+  <project path="external/tinycompress" name="android_external_tinycompress" remote="ext" revision="QPR3" />
+  <project path="external/tinyxml" name="android_external_tinyxml" remote="ext" revision="QPR3" />
+
+  <!-- Gitlab repos -->
   <project path="external/faceunlock" name="android_external_faceunlock" remote="superior-gitlab" />
-  <project path="external/gptfdisk" name="android_external_gptfdisk" remote="superior" />
-  <project path="external/jemalloc_new" name="android_external_jemalloc_new" remote="next" revision="QPR3" />
-  <project path="external/mksh" name="android_external_mksh" remote="superior" />
-  <project path="external/selinux" name="android_external_selinux" remote="superior" />
-  <project path="external/tinycompress" name="android_external_tinycompress" remote="superior" />
-  <project path="external/tinyxml" name="android_external_tinyxml" remote="superior" />
-
-  <!-- Framework repos -->
-  <project path="frameworks/av" name="android_frameworks_av" remote="next" revision="QPR3" />
-  <project path="frameworks/base" name="android_frameworks_base" remote="next" revision="QPR3" />
-  <project path="frameworks/native" name="android_frameworks_native" remote="next" revision="QPR3" />
-  <project path="frameworks/libs/net" name="android_frameworks_libs_net" remote="Extended" revision="QPR3" />
-  <project path="frameworks/libs/systemui" name="android_frameworks_libs_systemui" remote="superior" />
-  <project path="frameworks/opt/telephony" name="android_frameworks_opt_telephony" remote="Extended" revision="QPR3" />
-  <project path="frameworks/opt/net/ims" name="android_frameworks_opt_net_ims" remote="Extended" revision="QPR3" />
-
-  <!-- Hardware repos -->
-  <project path="hardware/google/pixel" name="android_hardware_google_pixel" remote="superior" />
-  <project path="hardware/google/pixel-sepolicy" name="android_hardware_google_pixel-sepolicy" remote="superior" />
-  <project path="hardware/libhardware" name="android_hardware_libhardware" remote="superior" />
-  <project path="hardware/interfaces" name="android_hardware_interfaces" remote="Extended" revision="QPR3" />
-  <project path="hardware/superior/interfaces" name="android_hardware_superior_interfaces" remote="next" revision="QPR3"/>
-  <project path="hardware/xiaomi" name="android_hardware_xiaomi" remote="Extended" revision="QPR3"/>
-
-  <!-- Qcom hals -->
-  <project path="hardware/qcom/wlan" name="android_hardware_qcom_wlan" remote="superior" />
-  <project path="hardware/qcom-caf/wlan" name="android_hardware_qcom-caf_wlan" remote="superior"/>
-
-  <!-- Audio hals -->
-  <project path="hardware/qcom-caf/sm8150/audio" name="android_hardware_qcom_audio" revision="thirteen-caf-sm8150" remote="superior" />
-  <project path="hardware/qcom-caf/sm8250/audio" name="android_hardware_qcom_audio" revision="thirteen-caf-sm8250" remote="superior" />
-  <project path="hardware/qcom-caf/sm8350/audio" name="android_hardware_qcom_audio" revision="thirteen-caf-sm8350" remote="superior" />
-  <project path="hardware/qcom-caf/msm8998/audio" name="android_hardware_qcom_audio" groups="qcom,legacy-qcom" revision="thirteen-caf-msm8998" remote="superior" />
-
-  <!-- Display hals -->
-  <project path="hardware/qcom-caf/sm8250/display" name="android_hardware_qcom_display" revision="thirteen-caf-sm8250" remote="superior" />
-  <project path="hardware/qcom-caf/sm8350/display" name="android_hardware_qcom_display" revision="thirteen-caf-sm8350" remote="superior" />
-  <project path="hardware/qcom-caf/msm8998/display" name="android_hardware_qcom_display" groups="qcom,legacy-qcom" revision="thirteen-caf-msm8998" remote="superior" />
-
-  <!-- Media hals -->
-  <project path="hardware/qcom-caf/sm8250/media" name="android_hardware_qcom_media" revision="thirteen-caf-sm8250" remote="superior" />
-  <project path="hardware/qcom-caf/sm8350/media" name="android_hardware_qcom_media" revision="thirteen-caf-sm8350" remote="superior" />
-  <project path="hardware/qcom-caf/msm8998/media" name="android_hardware_qcom_media" groups="qcom,legacy-qcom" revision="twelve-caf-msm8998" remote="superior" />
-
-  <!-- Qcom vendor -->
-  <project path="vendor/nxp/opensource/commonsys/external/libnfc-nci" name="android_vendor_nxp_opensource_external_libnfc-nci" remote="superior" />
-  <project path="vendor/nxp/opensource/commonsys/frameworks" name="android_vendor_nxp_opensource_frameworks" remote="superior" />
-  <project path="vendor/nxp/opensource/commonsys/packages/apps/Nfc" name="android_vendor_nxp_opensource_packages_apps_Nfc" remote="superior" />
-  <project path="vendor/qcom/opensource/data-ipa-cfg-mgr" name="android_vendor_qcom_opensource_data-ipa-cfg-mgr" remote="superior" />
-  <project path="vendor/qcom/opensource/dataservices" name="android_vendor_qcom_opensource_dataservices" remote="superior" />
-  <project path="vendor/qcom/opensource/power" name="android_vendor_qcom_opensource_power" remote="superior" />
-  <project path="vendor/qcom/opensource/vibrator" name="android_vendor_qcom_opensource_vibrator" remote="superior" />
-
-  <!-- Vendor repos -->
   <project path="vendor/gapps" name="android_vendor_gapps" remote="Extended-gitlab" revision="QPR3" clone-depth="1" />
-  <project path="vendor/superior" name="android_vendor_superior" remote="next" revision="QPR3" />
-  <project path="vendor/support" name="android_vendor_support" remote="next" revision="QPR3" />
-  <project path="vendor/prebuilts" name="android_vendor_prebuilts" remote="Extended" revision="QPR3" />
   <project path="vendor/prebuilts-superior" name="android_vendor_prebuilts-superior" remote="superior-gitlab" />
 
-  <!-- Packages repos -->
-  <project path="packages/apps/Contacts" name="android_packages_apps_Contacts" remote="Extended" revision="QPR3" />
-  <project path="packages/apps/DeskClock" name="android_packages_apps_DeskClock" remote="superior" />
-  <project path="packages/apps/Dialer" name="android_packages_apps_Dialer" remote="superior" />
-  <project path="packages/apps/Etar" name="android_packages_apps_Etar" remote="superior" />
-  <project path="packages/apps/ExactCalculator" name="android_packages_apps_ExactCalculator" remote="superior" />
-  <project path="packages/apps/FaceUnlockService" name="android_packages_apps_FaceUnlockService" remote="superior" />
-  <project path="packages/apps/DocumentsUI" name="android_packages_apps_DocumentsUI" remote="Extended" revision="QPR3" />
-  <project path="packages/apps/GameSpace" name="packages_apps_GameSpace" remote="Extended" revision="QPR3" />
-  <project path="packages/apps/Launcher3" name="android_packages_apps_Launcher3" remote="next" revision="QPR3" />
-  <project path="packages/apps/Messaging" name="android_packages_apps_Messaging" remote="Extended" revision="QPR3" />
-  <project path="packages/apps/Nfc" name="android_packages_apps_Nfc" remote="Extended" revision="QPR3" />
-  <project path="packages/apps/ParallelSpace" name="android_packages_apps_ParallelSpace" remote="Extended" revision="QPR3" />
-  <project path="packages/apps/RepainterService" name="android_packages_apps_RepainterService" remote="Extended" revision="QPR3" />
-  <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="next" revision="QPR3" />
-  <project path="packages/apps/SettingsIntelligence" name="android_packages_apps_SettingsIntelligence" remote="superior" />
-  <project path="packages/apps/SuperiorLab" name="android_packages_apps_SuperiorLab" remote="next" revision="QPR3" />
-  <project path="packages/apps/ThemePicker" name="android_packages_apps_ThemePicker" remote="Extended" revision="QPR3" />
-  <project path="packages/apps/Updater" name="android_packages_apps_Updater" remote="superior" />
-  <project path="packages/apps/WallpaperPicker2" name="android_packages_apps_WallpaperPicker2" remote="Extended" revision="QPR3" />
-  <project path="packages/apps/SupExtendedWallpaperStub" name="android_packages_apps_SupExtendedWallpaperStub" remote="Extended" revision="QPR3" />
-  <project path="packages/inputmethods/LatinIME" name="android_packages_inputmethods_LatinIME" remote="superior" />
-  <project path="packages/modules/adb" name="android_packages_modules_adb" remote="superior" />
-  <project path="packages/modules/Bluetooth" name="android_packages_modules_Bluetooth" remote="next" revision="QPR3" />
-  <project path="packages/modules/Connectivity" name="android_packages_modules_Connectivity" remote="next" revision="QPR3" />
-  <project path="packages/modules/IntentResolver" name="android_packages_modules_IntentResolver" remote="next" revision="QPR3" />
-  <project path="packages/modules/Permission" name="android_packages_modules_Permission" remote="next" revision="QPR3" />
-  <project path="packages/modules/Wifi" name="android_packages_modules_Wifi" remote="next" revision="QPR3" />
-  <project path="packages/overlays/Themes" name="android_packages_overlays_Themes" remote="next" revision="QPR3" />
-  <project path="packages/apps/TouchGestures" name="android_packages_apps_TouchGestures" remote="next" revision="QPR3" />
-  <project path="packages/providers/DownloadProvider" name="android_packages_providers_DownloadProvider" remote="next" revision="QPR3" />
-  <project path="packages/providers/MediaProvider" name="android_packages_providers_MediaProvider" remote="next" revision="QPR3" /> 
-  <project path="packages/services/OmniJaws" name="android_packages_services_OmniJaws" remote="next" revision="QPR3" />
-  <project path="packages/services/Telecomm" name="android_packages_services_Telecomm" remote="next" revision="QPR3" />
-  <project path="packages/services/Telephony" name="android_packages_services_Telephony" remote="next" revision="QPR3" />
+  <!-- Hardware repos -->
+  <project path="hardware/google/pixel" name="android_hardware_google_pixel" remote="hw" revision="QPR3" /> 
+  <project path="hardware/google/pixel-sepolicy" name="android_hardware_google_pixel-sepolicy" remote="hw" revision="QPR3" />
+  <project path="hardware/libhardware" name="android_hardware_libhardware" remote="hw" revision="QPR3" />
+  <project path="hardware/interfaces" name="android_hardware_interfaces" remote="hw" revision="QPR3" />
+  <project path="hardware/xiaomi" name="android_hardware_xiaomi" remote="hw" revision="QPR3"/>
+
+  <!-- Qcom hals -->
+  <project path="hardware/qcom/wlan" name="android_hardware_qcom_wlan" remote="hw" revision="QPR3" />
+  <project path="hardware/qcom-caf/wlan" name="android_hardware_qcom-caf_wlan" remote="hw" revision="QPR3" />
+
+  <!-- Audio hals -->
+  <project path="hardware/qcom-caf/sm8150/audio" name="android_hardware_qcom_audio" revision="thirteen-caf-sm8150" remote="hw" />
+
+  <!-- Qcom vendor -->
+  <project path="vendor/nxp/opensource/commonsys/external/libnfc-nci" name="android_vendor_nxp_opensource_external_libnfc-nci" remote="qcom" />
+  <project path="vendor/nxp/opensource/commonsys/frameworks" name="android_vendor_nxp_opensource_frameworks" remote="qcom" />
+  <project path="vendor/nxp/opensource/commonsys/packages/apps/Nfc" name="android_vendor_nxp_opensource_packages_apps_Nfc" remote="qcom" />
+  <project path="vendor/qcom/opensource/data-ipa-cfg-mgr" name="android_vendor_qcom_opensource_data-ipa-cfg-mgr" remote="qcom" />
+  <project path="vendor/qcom/opensource/dataservices" name="android_vendor_qcom_opensource_dataservices" remote="qcom" />
+  <project path="vendor/qcom/opensource/power" name="android_vendor_qcom_opensource_power" remote="qcom" />
+  <project path="vendor/qcom/opensource/vibrator" name="android_vendor_qcom_opensource_vibrator" remote="qcom" />
+
+  <!-- Packages apps -->
+  <project path="packages/apps/Contacts" name="android_packages_apps_Contacts" remote="apps" revision="QPR3" />
+  <project path="packages/apps/DeskClock" name="android_packages_apps_DeskClock" remote="apps" revision="QPR3" />
+  <project path="packages/apps/Dialer" name="android_packages_apps_Dialer" remote="apps" revision="QPR3" />
+  <project path="packages/apps/Etar" name="android_packages_apps_Etar" remote="apps" revision="QPR3" />
+  <project path="packages/apps/ExactCalculator" name="android_packages_apps_ExactCalculator" remote="apps" revision="QPR3" />
+  <project path="packages/apps/FaceUnlockService" name="android_packages_apps_FaceUnlockService" remote="apps" revision="QPR3" />
+  <project path="packages/apps/DocumentsUI" name="android_packages_apps_DocumentsUI" remote="apps" revision="QPR3" />
+  <project path="packages/apps/GameSpace" name="packages_apps_GameSpace" remote="apps" revision="QPR3" />
+  <project path="packages/apps/Launcher3" name="android_packages_apps_Launcher3" remote="apps" revision="QPR3" />
+  <project path="packages/apps/Messaging" name="android_packages_apps_Messaging" remote="apps" revision="QPR3" />
+  <project path="packages/apps/Nfc" name="android_packages_apps_Nfc" remote="apps" revision="QPR3" />
+  <project path="packages/apps/ParallelSpace" name="android_packages_apps_ParallelSpace" remote="apps" revision="QPR3" />
+  <project path="packages/apps/RepainterService" name="android_packages_apps_RepainterService" remote="apps" revision="QPR3" />
+  <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="apps" revision="QPR3" />
+  <project path="packages/apps/SettingsIntelligence" name="android_packages_apps_SettingsIntelligence" remote="apps" revision="QPR3" />
+  <project path="packages/apps/SuperiorLab" name="android_packages_apps_SuperiorLab" remote="apps" revision="QPR3" />
+  <project path="packages/apps/TouchGestures" name="android_packages_apps_TouchGestures" remote="apps" revision="QPR3" />
+  <project path="packages/apps/ThemePicker" name="android_packages_apps_ThemePicker" remote="apps" revision="QPR3" />
+  <project path="packages/apps/Updater" name="android_packages_apps_Updater" remote="apps" revision="QPR3" />
+  <project path="packages/apps/WallpaperPicker2" name="android_packages_apps_WallpaperPicker2" remote="apps" revision="QPR3" />
+  <project path="packages/apps/SupExtendedWallpaperStub" name="android_packages_apps_SupExtendedWallpaperStub" remote="apps" revision="QPR3" />
+  <project path="packages/inputmethods/LatinIME" name="android_packages_inputmethods_LatinIME" remote="apps" revision="QPR3" />
+  <project path="packages/overlays/Themes" name="android_packages_overlays_Themes" remote="apps" revision="QPR3" />
+
+  <!-- Packages apps modules -->
+  <project path="packages/modules/adb" name="android_packages_modules_adb" remote="mdl" revision="QPR3" />
+  <project path="packages/modules/Bluetooth" name="android_packages_modules_Bluetooth" remote="mdl" revision="QPR3" />
+  <project path="packages/modules/Connectivity" name="android_packages_modules_Connectivity" remote="mdl" revision="QPR3" />
+  <project path="packages/modules/IntentResolver" name="android_packages_modules_IntentResolver" remote="mdl" revision="QPR3" />
+  <project path="packages/modules/Permission" name="android_packages_modules_Permission" remote="mdl" revision="QPR3" />
+  <project path="packages/modules/Wifi" name="android_packages_modules_Wifi" remote="mdl" revision="QPR3" />
+
+  <!-- Packages apps providers -->
+  <project path="packages/providers/DownloadProvider" name="android_packages_providers_DownloadProvider" remote="mdl" revision="QPR3" />
+  <project path="packages/providers/MediaProvider" name="android_packages_providers_MediaProvider" remote="mdl" revision="QPR3" />
+
+  <!-- Packages apps services -->
+  <project path="packages/services/OmniJaws" name="android_packages_services_OmniJaws" remote="mdl" revision="QPR3" />
+  <project path="packages/services/Telecomm" name="android_packages_services_Telecomm" remote="mdl" revision="QPR3" />
+  <project path="packages/services/Telephony" name="android_packages_services_Telephony" remote="mdl" revision="QPR3" />
 
   <!-- Prebuilt repos -->
-  <project path="prebuilts/clang/kernel/linux-x86/clang-r416183b" name="android_prebuilts_clang_kernel_linux-x86_clang-r416183b" remote="superior" clone-depth="1" />
-  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9" clone-depth="1" remote="superior" />
-  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" name="android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9" clone-depth="1" remote="superior" />
-  <project path="prebuilts/kernel-build-tools" name="prebuilts_kernel-build-tools" remote="Extended" revision="QPR3" />
+  <project path="SuperiorOS/prebuilts/clang/kernel/linux-x86/clang-r416183b" name="android_prebuilts_clang_kernel_linux-x86_clang-r416183b" revision="thirteen" remote="github" clone-depth="1" />
+  <project path="SuperiorOS/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9" clone-depth="1" revision="thirteen" remote="github" />
+  <project path="SuperiorOS/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" name="android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9" clone-depth="1" revision="thirteen" remote="github" />
+  <project path="SuperiorExtended/prebuilts/kernel-build-tools" name="prebuilts_kernel-build-tools" remote="github" revision="QPR3" />
 
   <!-- Proton Clang -->
   <project path="prebuilts/clang/host/linux-x86/clang-proton" name="kdrag0n/proton-clang" clone-depth="1" revision="master" remote="github" />
 
+  <!-- Superior repos -->
+  <project path="art" name="android_art" remote="next" revision="QPR3" />
+  <project path="bionic" name="android_bionic" groups="pdk" remote="next" revision="QPR3" />
+  <project path="manifest" name="manifest" remote="next" />
+  <project path="frameworks/av" name="android_frameworks_av" remote="next" revision="QPR3" />
+  <project path="frameworks/base" name="android_frameworks_base" remote="next" revision="QPR3" />
+  <project path="frameworks/native" name="android_frameworks_native" remote="next" revision="QPR3" />
+  <project path="vendor/superior" name="android_vendor_superior" remote="next" revision="QPR3" />
+  <project path="vendor/support" name="android_vendor_support" remote="next" revision="QPR3" />
+  <project path="vendor/prebuilts" name="android_vendor_prebuilts" remote="next" revision="QPR3" />
+  <project path="device/superior/sepolicy" name="android_device_superior_sepolicy" remote="next" revision="QPR3" />
+  <project path="hardware/superior/interfaces" name="android_hardware_superior_interfaces" remote="next" revision="QPR3"/>
+
   <!-- System repos -->
-  <project path="system/core" name="android_system_core" remote="next" revision="QPR3" />
-  <project path="system/extras" name="android_system_extras" remote="superior" />
-  <project path="system/libhidl" name="android_system_libhidl" remote="superior" />
-  <project path="system/libziparchive" name="android_system_libziparchive" remote="superior" />
-  <project path="system/logging" name="android_system_logging" remote="superior" />
-  <project path="system/media" name="android_system_media" remote="Extended" revision="QPR3" />
-  <project path="system/security" name="android_system_security" remote="superior" />
-  <project path="system/sepolicy" name="android_system_sepolicy" remote="next" revision="QPR3" />
-  <project path="system/update_engine" name="android_system_update_engine" remote="Extended" revision="QPR3" />
-  <project path="system/vold" name="android_system_vold" remote="superior" />
-  <project path="system/memory/lmkd" name="android_system_memory_lmkd" remote="next" revision="QPR3" />
+  <project path="bootable/recovery" name="android_bootable_recovery" remote="sys" revision="QPR3" />
+  <project path="system/core" name="android_system_core" remote="sys" revision="QPR3" />
+  <project path="system/extras" name="android_system_extras" remote="sys" revision="QPR3" />
+  <project path="system/libhidl" name="android_system_libhidl" remote="sys" revision="QPR3" />
+  <project path="system/libziparchive" name="android_system_libziparchive" remote="sys" revision="QPR3" />
+  <project path="system/logging" name="android_system_logging" remote="sys" revision="QPR3" />
+  <project path="system/media" name="android_system_media" remote="sys" revision="QPR3" />
+  <project path="system/security" name="android_system_security" remote="sys" revision="QPR3" />
+  <project path="system/sepolicy" name="android_system_sepolicy" remote="sys" revision="QPR3" />
+  <project path="system/update_engine" name="android_system_update_engine" remote="sys" revision="QPR3" />
+  <project path="system/vold" name="android_system_vold" remote="sys" revision="QPR3" />
+  <project path="system/memory/lmkd" name="android_system_memory_lmkd" remote="sys" revision="QPR3" />
+  <project path="frameworks/libs/net" name="android_frameworks_libs_net" remote="sys" revision="QPR3" />
+  <project path="frameworks/libs/systemui" name="android_frameworks_libs_systemui" remote="sys" />
+  <project path="frameworks/opt/telephony" name="android_frameworks_opt_telephony" remote="sys" revision="QPR3" />
+  <project path="frameworks/opt/net/ims" name="android_frameworks_opt_net_ims" remote="sys" revision="QPR3" />
 </manifest>
