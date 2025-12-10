@@ -38,6 +38,10 @@
   <remote name="next"
           fetch="https://github.com/Superior13-NEXT/"
           revision="refs/heads/QPR3" />
+
+  <remote name="hw"
+          fetch="https://github.com/hardware-olive/"
+          revision="refs/heads/QPR3" />
   
   <remote  name="Extended-gitlab"
            fetch="https://gitlab.com/superior-extended/" />
